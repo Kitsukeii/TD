@@ -81,7 +81,8 @@ resource "azurerm_network_interface" "webserver" {
 
    ip_configuration {
        name = "internal"
-       private_ip_address_allocation = "Dynamic"
+       private_ip_address_allocation = "Static"
+       private_ip_address = "10.0.1.15"
        subnet_id = module.network.vnet_subnets[0]
        public_ip_address_id = azurerm_public_ip.webserver_public_ip.id
    }
